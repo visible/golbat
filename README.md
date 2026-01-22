@@ -34,4 +34,4 @@
   https://golb.at
 ```
 
-[MIT License](LICENSE)
+[mit](LICENSE)

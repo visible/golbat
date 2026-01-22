@@ -181,7 +181,7 @@ export default function Chat({ metadata, url }: ChatProps) {
       <button
         type="button"
         onMouseDown={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 w-10 h-10 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-lg flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-transform z-50"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-10 h-10 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 rounded-lg flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-transform z-50"
         aria-label={isOpen ? "Close chat" : "Open chat"}
       >
         {isOpen ? (
@@ -192,7 +192,7 @@ export default function Chat({ metadata, url }: ChatProps) {
       </button>
 
       <div
-        className={`fixed bottom-20 right-6 w-[400px] bg-[#f8f7f4] dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-2xl z-50 overflow-hidden transition-all duration-300 ease-out origin-bottom-right ${
+        className={`fixed bottom-16 right-4 left-4 sm:left-auto sm:bottom-20 sm:right-6 sm:w-[400px] max-h-[80vh] bg-[#f8f7f4] dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 rounded-xl shadow-2xl z-50 overflow-hidden transition-all duration-300 ease-out origin-bottom-right ${
           isOpen
             ? "opacity-100 scale-100 translate-y-0"
             : "opacity-0 scale-95 translate-y-2 pointer-events-none"
@@ -213,7 +213,7 @@ export default function Chat({ metadata, url }: ChatProps) {
           )}
         </div>
 
-        <div className="h-96 overflow-y-auto p-5 scrollbar-none">
+        <div className="h-64 sm:h-96 overflow-y-auto p-5 scrollbar-none">
           {messages.length === 0 ? (
             <div className="space-y-4">
               <p className="text-sm text-neutral-500 dark:text-neutral-400">

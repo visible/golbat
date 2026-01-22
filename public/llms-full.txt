@@ -1,0 +1,90 @@
+# golbat
+
+> A free, open-source metadata inspector for developers. Preview how your links appear on Telegram, Discord, Slack, X/Twitter, Facebook, LinkedIn, and WhatsApp before sharing.
+
+## What is golbat?
+
+golbat is a metadata inspector tool that helps developers preview how their links will appear when shared on social media platforms. It analyzes Open Graph tags, Twitter Cards, and other link metadata to show exactly what users will see.
+
+## Why use golbat?
+
+When you share a link on social media, platforms display a preview card with a title, description, and image. These previews are generated from metadata tags in your HTML. golbat lets you:
+
+- See previews before sharing
+- Identify missing or incorrect metadata
+- Validate image dimensions
+- Get AI-powered suggestions for improvements
+
+## Supported Platforms
+
+golbat shows live previews for 7 platforms:
+
+1. Telegram
+2. Discord
+3. Slack
+4. X (Twitter)
+5. Facebook
+6. LinkedIn
+7. WhatsApp
+
+## Features
+
+### Live Previews
+See exactly how your link will appear on each platform in real-time.
+
+### Metadata Quality Score
+Get a score from 0-100 based on how complete and correct your metadata is.
+
+### AI-Powered Analysis
+Receive intelligent suggestions to improve your link previews.
+
+### Copy as HTML/JSON
+Export the metadata in HTML meta tags or JSON format.
+
+### Image Dimension Validation
+Check if your OG images meet platform requirements (1200x630 recommended).
+
+### Keyboard Shortcuts
+Press 1-7 to quickly switch between platform previews.
+
+### URL History
+Access previously checked URLs for quick reference.
+
+### Dark Mode
+Toggle between light and dark themes.
+
+## How to Use
+
+1. Visit https://golb.at
+2. Enter a URL in the input field
+3. Press Enter or click Check
+4. View previews for each platform
+5. Review the metadata quality score
+6. Read AI suggestions for improvements
+
+## Technical Stack
+
+- Next.js (React framework)
+- TypeScript
+- Tailwind CSS
+- Vercel AI SDK
+
+## Open Source
+
+golbat is open source under the MIT license.
+
+- Website: https://golb.at
+- GitHub: https://github.com/visible/golbat
+- Creator: visible (https://github.com/visible)
+
+## Related Topics
+
+- Open Graph Protocol
+- Twitter Cards
+- Meta tags
+- Social media previews
+- Link unfurling
+- SEO metadata
+- og:image
+- og:title
+- og:description

@@ -6,6 +6,7 @@ golbat helps developers inspect Open Graph tags, Twitter Cards, and other link m
 
 ## Documentation
 
+- [Full Documentation](https://golb.at/llms-full.txt): Complete content for LLMs
 - [Website](https://golb.at): Main application
 - [GitHub](https://github.com/visible/golbat): Source code and documentation
 

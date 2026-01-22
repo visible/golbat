@@ -34,6 +34,4 @@
   https://golb.at
 ```
 
-```
-made with ◇
-```
+[MIT License](LICENSE)

@@ -1,57 +1,62 @@
-import Link from "next/link"
 import { Github } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import MetaChecker from "@/components/meta-checker"
-import SettingsDropdown from "@/components/settings-dropdown"
-import DarkModeToggle from "@/components/dark-mode-toggle"
+import Link from "next/link"
+import { Suspense } from "react"
+import Checker from "@/components/checker"
+import Logo from "@/components/logo"
+import Theme from "@/components/theme"
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-white text-black dark:bg-[#121212] dark:text-[#E0E0E0] font-mono">
-      <header className="w-full p-4 flex justify-between items-center max-w-3xl mx-auto backdrop-blur-sm bg-white/80 dark:bg-[#121212]/90 sticky top-0 z-10">
-        <Link href="/" className="font-bold text-xl hover:text-gray-700 dark:hover:text-[#FFFFFF] transition-colors">line.al</Link>
-        <div className="flex items-center gap-2">
-          <DarkModeToggle />
-          <SettingsDropdown />
+    <div className="min-h-screen flex flex-col">
+      <header className="w-full">
+        <div className="max-w-2xl mx-auto px-6 h-14 flex justify-between items-center">
+          <Link
+            href="/"
+            className="flex items-center gap-2 hover:opacity-60 transition-opacity"
+          >
+            <Logo size={18} />
+            <span className="text-xs tracking-[0.15em] uppercase">golb.at</span>
+          </Link>
+          <div className="flex items-center gap-1">
+            <Theme />
+            <Link
+              href="https://github.com/visible/golbat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors"
+              aria-label="GitHub"
+            >
+              <Github size={14} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </header>
 
-      <main className="flex-1 flex flex-col items-center justify-start pt-8 p-4 max-w-3xl mx-auto w-full">
-        <div className="w-full mb-12 text-center">
-          <div className="text-xs text-gray-500 dark:text-[#888888] mb-1">SYSTEM</div>
-          <h1 className="text-2xl font-bold mb-1 dark:text-[#E0E0E0]">metadata</h1>
-          <p className="text-gray-500 dark:text-[#B0B0B0] text-sm">Web Metadata Discovery & Analysis</p>
+      <main className="flex-1 flex flex-col justify-center">
+        <div className="max-w-2xl mx-auto px-6 w-full py-12 md:py-16">
+          <Suspense fallback={<CheckerSkeleton />}>
+            <Checker />
+          </Suspense>
         </div>
-
-        <MetaChecker />
       </main>
 
-      <footer className="w-full p-4 max-w-3xl mx-auto border-t border-gray-100 dark:border-[#444444] mt-8">
-        <div className="flex items-center text-xs text-gray-500 dark:text-[#888888] justify-between">
-          <div className="flex items-center">
-            <span>Hosted on</span>
-            <Link
-              href="https://vercel.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-2 flex items-center hover:text-gray-800 dark:hover:text-[#E0E0E0] transition-colors"
+      <footer className="w-full">
+        <div className="max-w-2xl mx-auto px-6 h-14 flex justify-between items-center text-[10px] text-neutral-400 uppercase tracking-[0.15em]">
+          <span>metadata inspector</span>
+          <Link
+            href="https://vercel.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors"
+          >
+            <svg
+              height="9"
+              viewBox="0 0 76 65"
+              fill="currentColor"
+              aria-hidden="true"
             >
-              <svg height="14" viewBox="0 0 76 65" fill="currentColor">
-                <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" />
-              </svg>
-              <span className="ml-1">Vercel</span>
-            </Link>
-          </div>
-
-          <Link href="https://github.com/dancer/lineal" target="_blank" rel="noopener noreferrer">
-            <Button
-              variant="ghost"
-              size="sm"
-              className="flex items-center gap-1.5 text-xs h-auto py-1 px-2 dark:text-[#B0B0B0] dark:hover:text-[#E0E0E0] dark:hover:bg-[#444444] transition-colors"
-            >
-              <Github size={14} />
-              <span>Star on GitHub</span>
-            </Button>
+              <path d="M37.5274 0L75.0548 65H0L37.5274 0Z" />
+            </svg>
           </Link>
         </div>
       </footer>
@@ -59,3 +64,14 @@ export default function Home() {
   )
 }
 
+function CheckerSkeleton() {
+  return (
+    <div className="w-full">
+      <div className="mb-8">
+        <div className="h-12 w-48 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+        <div className="mt-3 h-4 w-64 bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+      </div>
+      <div className="h-11 w-full bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+    </div>
+  )
+}

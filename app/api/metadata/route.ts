@@ -1,18 +1,21 @@
-import { type NextRequest, NextResponse } from "next/server"
 import * as cheerio from "cheerio"
+import { type NextRequest, NextResponse } from "next/server"
 
 export async function GET(request: NextRequest) {
   const url = request.nextUrl.searchParams.get("url")
   const full = request.nextUrl.searchParams.get("full") === "true"
 
   if (!url) {
-    return NextResponse.json({ error: "URL parameter is required" }, { status: 400 })
+    return NextResponse.json(
+      { error: "URL parameter is required" },
+      { status: 400 },
+    )
   }
 
   try {
     const response = await fetch(url, {
       headers: {
-        "User-Agent": "Mozilla/5.0 (compatible; LineAl/1.0; +https://line.al)",
+        "User-Agent": "Mozilla/5.0 (compatible; Golbat/1.0; +https://golb.at)",
       },
     })
 
@@ -34,28 +37,38 @@ export async function GET(request: NextRequest) {
 
     const metadata: Record<string, string | undefined> = {
       // Get title with priority and cleaning
-      title: cleanText($("head title").first().text()) || 
-             cleanText($("meta[property='og:title']").attr("content") || "") ||
-             cleanText($("meta[name='twitter:title']").attr("content") || "") ||
-             undefined,
+      title:
+        cleanText($("head title").first().text()) ||
+        cleanText($("meta[property='og:title']").attr("content") || "") ||
+        cleanText($("meta[name='twitter:title']").attr("content") || "") ||
+        undefined,
       description: $('meta[name="description"]').attr("content") || undefined,
 
       ogTitle: $('meta[property="og:title"]').attr("content") || undefined,
-      ogDescription: $('meta[property="og:description"]').attr("content") || undefined,
+      ogDescription:
+        $('meta[property="og:description"]').attr("content") || undefined,
       ogImage: $('meta[property="og:image"]').attr("content") || undefined,
       ogType: $('meta[property="og:type"]').attr("content") || undefined,
       ogUrl: $('meta[property="og:url"]').attr("content") || undefined,
-      ogSiteName: $('meta[property="og:site_name"]').attr("content") || undefined,
+      ogSiteName:
+        $('meta[property="og:site_name"]').attr("content") || undefined,
       ogLocale: $('meta[property="og:locale"]').attr("content") || undefined,
 
       twitterCard: $('meta[name="twitter:card"]').attr("content") || undefined,
-      twitterTitle: $('meta[name="twitter:title"]').attr("content") || undefined,
-      twitterDescription: $('meta[name="twitter:description"]').attr("content") || undefined,
-      twitterImage: $('meta[name="twitter:image"]').attr("content") || undefined,
+      twitterTitle:
+        $('meta[name="twitter:title"]').attr("content") || undefined,
+      twitterDescription:
+        $('meta[name="twitter:description"]').attr("content") || undefined,
+      twitterImage:
+        $('meta[name="twitter:image"]').attr("content") || undefined,
       twitterSite: $('meta[name="twitter:site"]').attr("content") || undefined,
-      twitterCreator: $('meta[name="twitter:creator"]').attr("content") || undefined,
+      twitterCreator:
+        $('meta[name="twitter:creator"]').attr("content") || undefined,
 
-      charset: $("meta[charset]").attr("charset") || $('meta[http-equiv="Content-Type"]').attr("content") || undefined,
+      charset:
+        $("meta[charset]").attr("charset") ||
+        $('meta[http-equiv="Content-Type"]').attr("content") ||
+        undefined,
       viewport: $('meta[name="viewport"]').attr("content") || undefined,
       robots: $('meta[name="robots"]').attr("content") || undefined,
       generator: $('meta[name="generator"]').attr("content") || undefined,
@@ -70,12 +83,19 @@ export async function GET(request: NextRequest) {
       search: $('link[rel="search"]').attr("href") || undefined,
       icon: $('link[rel="icon"]').attr("href") || undefined,
 
-      mobileApp: $('meta[name="apple-itunes-app"]').attr("content") || undefined,
+      mobileApp:
+        $('meta[name="apple-itunes-app"]').attr("content") || undefined,
       mobileAppUrl: $('meta[name="al:ios:url"]').attr("content") || undefined,
-      appleItunesApp: $('meta[name="apple-itunes-app"]').attr("content") || undefined,
-      appleMobileWebAppCapable: $('meta[name="apple-mobile-web-app-capable"]').attr("content") || undefined,
-      appleMobileWebAppTitle: $('meta[name="apple-mobile-web-app-title"]').attr("content") || undefined,
-      formatDetection: $('meta[name="format-detection"]').attr("content") || undefined,
+      appleItunesApp:
+        $('meta[name="apple-itunes-app"]').attr("content") || undefined,
+      appleMobileWebAppCapable:
+        $('meta[name="apple-mobile-web-app-capable"]').attr("content") ||
+        undefined,
+      appleMobileWebAppTitle:
+        $('meta[name="apple-mobile-web-app-title"]').attr("content") ||
+        undefined,
+      formatDetection:
+        $('meta[name="format-detection"]').attr("content") || undefined,
 
       favicon:
         $(
@@ -84,8 +104,11 @@ export async function GET(request: NextRequest) {
     }
 
     if (full) {
-      $("meta").each((i, elem) => {
-        const name = $(elem).attr("name") || $(elem).attr("property") || $(elem).attr("http-equiv")
+      $("meta").each((_i, elem) => {
+        const name =
+          $(elem).attr("name") ||
+          $(elem).attr("property") ||
+          $(elem).attr("http-equiv")
         const content = $(elem).attr("content")
 
         if (name && content) {
@@ -94,7 +117,7 @@ export async function GET(request: NextRequest) {
         }
       })
 
-      $("link").each((i, elem) => {
+      $("link").each((_i, elem) => {
         const rel = $(elem).attr("rel")
         const href = $(elem).attr("href")
 
@@ -108,10 +131,14 @@ export async function GET(request: NextRequest) {
     const urlObj = new URL(url)
     const baseUrl = `${urlObj.protocol}//${urlObj.host}`
 
-    const makeAbsoluteUrl = (relativeUrl: string | undefined): string | undefined => {
+    const makeAbsoluteUrl = (
+      relativeUrl: string | undefined,
+    ): string | undefined => {
       if (!relativeUrl) return undefined
       if (relativeUrl.startsWith("http")) return relativeUrl
-      return relativeUrl.startsWith("/") ? `${baseUrl}${relativeUrl}` : `${baseUrl}/${relativeUrl}`
+      return relativeUrl.startsWith("/")
+        ? `${baseUrl}${relativeUrl}`
+        : `${baseUrl}/${relativeUrl}`
     }
 
     Object.keys(metadata).forEach((key) => {
@@ -134,15 +161,21 @@ export async function GET(request: NextRequest) {
         if (faviconResponse.ok) {
           metadata.favicon = rootFaviconUrl
         }
-      } catch (error) {
+      } catch (_error) {
         console.log("No favicon.ico found at root")
       }
     }
 
-    return NextResponse.json(metadata)
+    return NextResponse.json(metadata, {
+      headers: {
+        "Cache-Control": "no-store, no-cache, must-revalidate",
+      },
+    })
   } catch (error) {
     console.error("Error fetching metadata:", error)
-    return NextResponse.json({ error: "Failed to fetch or parse the website" }, { status: 500 })
+    return NextResponse.json(
+      { error: "Failed to fetch or parse the website" },
+      { status: 500 },
+    )
   }
 }
-

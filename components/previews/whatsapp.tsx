@@ -1,9 +1,16 @@
+"use client"
+
+import { nocache } from "@/lib/cache"
+
 interface PlatformPreviewProps {
   metadata: any
   url: string
 }
 
-export default function WhatsAppPreview({ metadata, url }: PlatformPreviewProps) {
+export default function WhatsAppPreview({
+  metadata,
+  url,
+}: PlatformPreviewProps) {
   const title = metadata.ogTitle || metadata.title || url
   const description = metadata.ogDescription || metadata.description || ""
   const image = metadata.ogImage || metadata.twitterImage || ""
@@ -15,7 +22,7 @@ export default function WhatsAppPreview({ metadata, url }: PlatformPreviewProps)
           {image && (
             <div>
               <img
-                src={image || "/placeholder.svg"}
+                src={nocache(image)}
                 alt={title}
                 className="h-44 w-full object-cover"
                 onError={(e) => {
@@ -40,4 +47,3 @@ export default function WhatsAppPreview({ metadata, url }: PlatformPreviewProps)
     </div>
   )
 }
-

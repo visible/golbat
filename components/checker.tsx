@@ -26,7 +26,7 @@ const mainTabs = [
   { id: "raw", label: "Raw" },
 ]
 
-const suggestedUrls = ["vercel.com", "linear.app", "stripe.com"]
+const suggestedUrls = ["vercel.com", "poke.com", "stripe.com"]
 
 export default function Checker() {
   const router = useRouter()

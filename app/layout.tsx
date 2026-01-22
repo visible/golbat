@@ -7,8 +7,8 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: {
-    default: "ཐི༏ཋྀ",
-    template: "%s | ཐི༏ཋྀ",
+    default: "golbat",
+    template: "%s | golbat",
   },
   description: "inspect link previews across platforms",
   metadataBase: new URL("https://golb.at"),
@@ -34,13 +34,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "golbat",
-    title: "ཐི༏ཋྀ",
+    title: "golbat",
     description: "inspect link previews across platforms",
     images: ["/og.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ཐི༏ཋྀ",
+    title: "golbat",
     description: "inspect link previews across platforms",
     images: ["/og.png"],
   },

@@ -1,6 +1,7 @@
 import { Github } from "lucide-react"
 import Link from "next/link"
 import { Suspense } from "react"
+import Background from "@/components/background"
 import Checker from "@/components/checker"
 import Logo from "@/components/logo"
 import Theme from "@/components/theme"
@@ -8,6 +9,7 @@ import Theme from "@/components/theme"
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
+      <Background />
       <header className="w-full">
         <div className="max-w-2xl mx-auto px-6 h-14 flex justify-between items-center">
           <Link

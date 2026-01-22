@@ -10,10 +10,14 @@ export const metadata: Metadata = {
     default: "golbat",
     template: "%s | golbat",
   },
-  description: "Inspect link previews across platforms",
+  description: "inspect link previews across platforms",
   metadataBase: new URL("https://golb.at"),
   manifest: "/manifest.json",
   keywords: ["link preview", "og tags", "meta tags", "seo", "social media"],
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8f7f4" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
   authors: [{ name: "visible" }],
   creator: "visible",
   robots: {
@@ -28,12 +32,14 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "golbat",
     title: "golbat",
-    description: "Inspect link previews across platforms",
+    description: "inspect link previews across platforms",
+    images: ["/og.png"],
   },
   twitter: {
     card: "summary_large_image",
     title: "golbat",
-    description: "Inspect link previews across platforms",
+    description: "inspect link previews across platforms",
+    images: ["/og.png"],
   },
 }
 

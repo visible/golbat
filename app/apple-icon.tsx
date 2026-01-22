@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og"
+import { readFile } from "fs/promises"
+import { join } from "path"
 
 export const size = {
   width: 180,
@@ -6,7 +8,11 @@ export const size = {
 }
 export const contentType = "image/png"
 
-export default function AppleIcon() {
+export default async function AppleIcon() {
+  const fontData = await readFile(
+    join(process.cwd(), "app/fonts/tibetan.ttf")
+  )
+
   return new ImageResponse(
     <div
       style={{
@@ -18,6 +24,7 @@ export default function AppleIcon() {
         background: "#0a0a0a",
         borderRadius: "32px",
         fontSize: 80,
+        fontFamily: "Tibetan",
         color: "#e5e5e5",
       }}
     >
@@ -25,6 +32,13 @@ export default function AppleIcon() {
     </div>,
     {
       ...size,
+      fonts: [
+        {
+          name: "Tibetan",
+          data: fontData,
+          style: "normal",
+        },
+      ],
     },
   )
 }

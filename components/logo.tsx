@@ -8,7 +8,7 @@ export default function Logo({ size = 16, className }: LogoProps) {
     <span
       aria-hidden="true"
       className={className ?? "text-neutral-900 dark:text-white"}
-      style={{ fontSize: size, fontFamily: "'Noto Serif Tibetan', serif" }}
+      style={{ fontSize: size }}
     >
       ཐི༏ཋྀ
     </span>

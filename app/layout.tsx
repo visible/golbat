@@ -7,11 +7,14 @@ import "./globals.css"
 
 export const metadata: Metadata = {
   title: {
-    default: "golbat",
-    template: "%s | golbat",
+    default: "ཐི༏ཋྀ",
+    template: "%s | ཐི༏ཋྀ",
   },
   description: "inspect link previews across platforms",
   metadataBase: new URL("https://golb.at"),
+  alternates: {
+    canonical: "https://golb.at",
+  },
   manifest: "/manifest.json",
   keywords: ["link preview", "og tags", "meta tags", "seo", "social media"],
   themeColor: [
@@ -31,13 +34,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "golbat",
-    title: "golbat",
+    title: "ཐི༏ཋྀ",
     description: "inspect link previews across platforms",
     images: ["/og.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "golbat",
+    title: "ཐི༏ཋྀ",
     description: "inspect link previews across platforms",
     images: ["/og.png"],
   },

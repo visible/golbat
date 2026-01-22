@@ -32,6 +32,8 @@
 > visit?
 
   https://golb.at
-```
 
-[mit](LICENSE)
+> license?
+
+  mit
+```

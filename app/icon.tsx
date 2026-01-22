@@ -3,12 +3,12 @@ import { readFile } from "fs/promises"
 import { join } from "path"
 
 export const size = {
-  width: 180,
-  height: 180,
+  width: 32,
+  height: 32,
 }
 export const contentType = "image/png"
 
-export default async function AppleIcon() {
+export default async function Icon() {
   const fontData = await readFile(
     join(process.cwd(), "app/fonts/tibetan.ttf")
   )
@@ -22,8 +22,8 @@ export default async function AppleIcon() {
         alignItems: "center",
         justifyContent: "center",
         background: "#0a0a0a",
-        borderRadius: "32px",
-        fontSize: 80,
+        borderRadius: "6px",
+        fontSize: 16,
         fontFamily: "Tibetan",
         color: "#e5e5e5",
       }}

@@ -1,35 +1,19 @@
 # golbat
 
-> metadata inspector for developers - see how your links appear on social platforms before sharing
+> A free, open-source metadata inspector for developers. Preview how your links appear on Telegram, Discord, Slack, X/Twitter, Facebook, LinkedIn, and WhatsApp before sharing.
 
-## about
+golbat helps developers inspect Open Graph tags, Twitter Cards, and other link metadata across 7 platforms. Features include live previews, metadata quality scoring, AI-powered analysis, copy as HTML/JSON, image dimension validation, keyboard shortcuts, URL history, and dark mode.
 
-golbat is a free, open-source tool that lets developers inspect and preview link metadata (Open Graph tags, Twitter Cards, etc.) across multiple platforms including Telegram, Discord, Slack, X/Twitter, Facebook, LinkedIn, and WhatsApp.
+## Documentation
 
-## features
+- [Website](https://golb.at): Main application
+- [GitHub](https://github.com/visible/golbat): Source code and documentation
 
-- live previews for 7 platforms
-- metadata quality score
-- ai-powered analysis
-- copy as html/json
-- image dimension validation
-- keyboard shortcuts (1-7)
-- url history
-- dark mode
+## Technical
 
-## links
+- [Sitemap](https://golb.at/sitemap.xml): XML sitemap
+- [Robots](https://golb.at/robots.txt): Crawler permissions
 
-- website: https://golb.at
-- github: https://github.com/visible/golbat
+## Optional
 
-## stack
-
-next.js, typescript, tailwind, vercel ai sdk
-
-## creator
-
-visible (https://github.com/visible)
-
-## license
-
-mit
+- [OG Image](https://golb.at/og.png): Open Graph preview image

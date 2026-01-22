@@ -18,11 +18,12 @@ export default function TwitterTab({
     <div className="space-y-6">
       <Card title="X Card">
         <Field label="Card Type" value={metadata.twitterCard} />
-        <Field label="Title" value={metadata.twitterTitle} characterCount />
+        <Field label="Title" value={metadata.twitterTitle} characterCount limit={70} />
         <Field
           label="Description"
           value={metadata.twitterDescription}
           characterCount
+          limit={200}
         />
         <Field label="Image" value={metadata.twitterImage} isImage />
         <Field label="Site" value={metadata.twitterSite} />

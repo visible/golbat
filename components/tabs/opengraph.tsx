@@ -17,11 +17,12 @@ export default function OpenGraphTab({
   return (
     <div className="space-y-6">
       <Card title="Open Graph">
-        <Field label="Title" value={metadata.ogTitle} characterCount />
+        <Field label="Title" value={metadata.ogTitle} characterCount limit={60} />
         <Field
           label="Description"
           value={metadata.ogDescription}
           characterCount
+          limit={160}
         />
         <Field label="Image" value={metadata.ogImage} isImage />
         <Field label="Type" value={metadata.ogType} />

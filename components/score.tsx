@@ -10,7 +10,9 @@ function calculate(metadata: MetaData): { score: number; checks: { label: string
   const checks: { label: string; ok: boolean }[] = []
 
   checks.push({ label: "Title", ok: !!metadata.title })
+  checks.push({ label: "Title Length", ok: !!metadata.title && metadata.title.length <= 60 })
   checks.push({ label: "Description", ok: !!metadata.description })
+  checks.push({ label: "Desc Length", ok: !!metadata.description && metadata.description.length <= 160 })
   checks.push({ label: "OG Title", ok: !!metadata.ogTitle })
   checks.push({ label: "OG Description", ok: !!metadata.ogDescription })
   checks.push({ label: "OG Image", ok: !!metadata.ogImage })

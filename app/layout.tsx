@@ -1,9 +1,16 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import type React from "react"
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { ThemeProvider } from "next-themes"
 import "./globals.css"
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8f7f4" },
+    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+  ],
+}
 
 export const metadata: Metadata = {
   title: {
@@ -17,10 +24,6 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   keywords: ["link preview", "og tags", "meta tags", "seo", "social media"],
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8f7f4" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
-  ],
   authors: [{ name: "visible" }],
   creator: "visible",
   robots: {

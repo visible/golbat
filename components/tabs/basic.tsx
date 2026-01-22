@@ -99,7 +99,39 @@ export default function BasicTab({
         </Field>
       </Card>
 
+      <Card title="SEO Files">
+        <LinkField label="robots.txt" value={metadata.robotsFile} />
+        <LinkField label="sitemap.xml" value={metadata.sitemap} />
+      </Card>
+
       {showSuggestions && <Suggestions metadata={metadata} type="basic" />}
+    </div>
+  )
+}
+
+function LinkField({ label, value }: { label: string; value?: string }) {
+  return (
+    <div className="py-2 -mx-2 px-2 rounded hover:bg-[#111] transition-colors">
+      <div className="flex flex-col sm:flex-row gap-1 sm:gap-0">
+        <div className="text-xs text-[#666] w-full sm:w-32 sm:pt-0.5">
+          {label}
+        </div>
+        <div className="flex-1 break-words">
+          {value ? (
+            <a
+              href={value}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-green-500 hover:underline inline-flex items-center gap-1"
+            >
+              Found
+              <ExternalLink size={10} />
+            </a>
+          ) : (
+            <span className="text-red-400 text-sm">Not found</span>
+          )}
+        </div>
+      </div>
     </div>
   )
 }

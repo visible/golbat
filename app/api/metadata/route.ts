@@ -161,10 +161,24 @@ export async function GET(request: NextRequest) {
         if (faviconResponse.ok) {
           metadata.favicon = rootFaviconUrl
         }
-      } catch (_error) {
-        console.log("No favicon.ico found at root")
-      }
+      } catch (_error) {}
     }
+
+    const robotsUrl = `${baseUrl}/robots.txt`
+    try {
+      const robotsResponse = await fetch(robotsUrl, { method: "HEAD" })
+      if (robotsResponse.ok) {
+        metadata.robotsFile = robotsUrl
+      }
+    } catch (_error) {}
+
+    const sitemapUrl = `${baseUrl}/sitemap.xml`
+    try {
+      const sitemapResponse = await fetch(sitemapUrl, { method: "HEAD" })
+      if (sitemapResponse.ok) {
+        metadata.sitemap = sitemapUrl
+      }
+    } catch (_error) {}
 
     return NextResponse.json(metadata, {
       headers: {

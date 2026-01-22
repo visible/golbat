@@ -21,6 +21,8 @@ function calculate(metadata: MetaData): { score: number; checks: { label: string
   checks.push({ label: "Canonical", ok: !!metadata.canonical })
   checks.push({ label: "Favicon", ok: !!metadata.favicon })
   checks.push({ label: "Viewport", ok: !!metadata.viewport })
+  checks.push({ label: "robots.txt", ok: !!metadata.robotsFile })
+  checks.push({ label: "sitemap.xml", ok: !!metadata.sitemap })
 
   const passed = checks.filter((c) => c.ok).length
   const score = Math.round((passed / checks.length) * 100)

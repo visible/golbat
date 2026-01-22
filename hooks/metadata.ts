@@ -38,6 +38,8 @@ export interface MetaData {
   appleMobileWebAppCapable?: string
   appleMobileWebAppTitle?: string
   formatDetection?: string
+  robotsFile?: string
+  sitemap?: string
   [key: string]: string | undefined
 }
 

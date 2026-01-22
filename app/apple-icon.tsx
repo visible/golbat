@@ -68,7 +68,7 @@ export default function AppleIcon() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "#f8f7f4",
+        background: "#0a0a0a",
         borderRadius: "32px",
         position: "relative",
       }}
@@ -83,7 +83,7 @@ export default function AppleIcon() {
             width: 12,
             height: 12,
             borderRadius: "50%",
-            background: "#1a1a1a",
+            background: "#e5e5e5",
             opacity: dot.o,
           }}
         />

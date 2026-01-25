@@ -1,7 +1,7 @@
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │                                                              │
-│   ◇  golb.at                                                 │
+│   / golb.at                                                  │
 │                                                              │
 │   inspect how your links appear on social platforms          │
 │                                                              │

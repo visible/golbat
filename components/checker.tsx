@@ -3,7 +3,6 @@
 import { useRouter, useSearchParams } from "next/navigation"
 import { useCallback, useEffect, useRef, useState } from "react"
 import { usemetadata } from "@/hooks/metadata"
-import Chat from "./chat"
 import History, { addHistory } from "./history"
 import Input from "./input"
 import Localhost from "./localhost"
@@ -215,8 +214,6 @@ export default function Checker() {
                 </>
               )}
             </div>
-
-            {metadata && <Chat metadata={metadata} url={url} />}
           </div>
         </div>
       </div>
